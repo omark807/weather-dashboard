@@ -1,5 +1,70 @@
-/* Typography updates for accessibility mode */
-h1 {
+.weather-map-container {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+  }
+  
+  .weather-map {
+    width: 100%;
+    height: 400px;
+    background-color: var(--detail-background);
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .weather-map img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .map-controls {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .map-button {
+    padding: 0.6rem 1rem;
+    background-color: var(--detail-background);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: var(--font-size-base);
+    transition: all 0.3s;
+  }
+  
+  .map-button:hover {
+    background-color: var(--secondary-color);
+    color: white;
+  }
+  
+  .map-button.active {
+    background-color: var(--secondary-color);
+    color: white;
+  }
+  
+  .a11y-mode .weather-map-container {
+    padding: calc(var(--spacing) * 1.5);
+    margin-bottom: calc(var(--spacing) * 1.5);
+  }
+  
+  .a11y-mode .weather-map {
+    height: 450px;
+    margin-bottom: calc(var(--spacing) * 1.2);
+  }
+  
+  .a11y-mode .map-button {
+    padding: 0.8rem 1.2rem;
+    font-weight: bold;
+  }/* Typography updates for accessibility mode */
+  h1 {
     font-size: calc(var(--font-size-xlarge) * 1.5);
     margin-bottom: var(--spacing);
   }
