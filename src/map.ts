@@ -4,10 +4,8 @@ import { announceForScreenReader } from './utils';
 // Map types
 type MapType = 'radar' | 'satellite' | 'temperature';
 
-// Map API configuration
-// We'll use OpenWeatherMap for the map tiles - free tier with limited usage
-const MAP_API_KEY = 'fd6aadc66f0287155615a9e570d71885'
-; // Replace with your OpenWeatherMap API key
+// Map API configuration with environment variables
+const MAP_API_KEY = process.env.OPENWEATHERMAP_API_KEY || 'demo_key'; // Fallback for development
 const MAP_BASE_URL = 'https://tile.openweathermap.org/map';
 const MAP_ZOOM = 10;
 const MAP_SIZE = 9; // Size of the map (number of tiles in each direction)
@@ -72,7 +70,7 @@ export function updateWeatherMap(mapType: MapType, data: WeatherData): void {
   // Update the map container with the map image
   mapContainer.innerHTML = `
     <img 
-      src="${MAP_API_KEY !== 'fd6aadc66f0287155615a9e570d71885' ? mapUrl : fallbackMapUrl}" 
+      src="${MAP_API_KEY !== 'YOUR_OPENWEATHERMAP_API_KEY' ? mapUrl : fallbackMapUrl}" 
       alt="${mapDescription} for ${data.location}"
       aria-label="${mapDescription} for ${data.location}"
       class="weather-map-image"

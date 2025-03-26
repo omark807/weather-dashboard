@@ -2,9 +2,8 @@ import axios from 'axios';
 import { WeatherResponse, WeatherData, ForecastItem, ApiError } from './types';
 import { formatDate } from './utils';
 
-// Free API key from WeatherAPI.com - limited to 1,000,000 calls per month
-// You should sign up for your own API key at https://www.weatherapi.com/
-const API_KEY = 'ec53ffe3aa984dc0989215617252603'; // Replace with your actual API key
+// API configuration with environment variables
+const API_KEY = process.env.WEATHER_API_KEY || 'demo_key'; // Fallback for development
 const BASE_URL = 'https://api.weatherapi.com/v1';
 
 /**
