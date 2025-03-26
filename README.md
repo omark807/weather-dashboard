@@ -66,9 +66,26 @@ The project follows a modular design pattern:
    npm run build
    ```
 
+## Testing
+
+The project includes a comprehensive test suite using Jest:
+
+- **Unit Tests**: Test individual functions and modules in isolation
+- **Integration Tests**: Test how different modules work together
+- **Mock Implementation**: Uses Jest's mocking capabilities to test API calls without making actual network requests
+
+To run the tests:
+```bash
+npm test
+```
+
+To run tests in watch mode during development:
+```bash
+npm run test:watch
+```
+
 ## Future Improvements
 
-- Add unit tests
 - Implement geolocation to get the user's current location
 - Add options to switch between Celsius and Fahrenheit
 - Add more detailed forecast information
