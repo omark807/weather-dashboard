@@ -102,11 +102,15 @@ export function formatDate(dateString: string): string {
     }
     
     // Set the message
-    announcer.textContent = message;
+    if (announcer) {
+      announcer.textContent = message;
+    }
     
     // Clear after a few seconds
     setTimeout(() => {
-      announcer.textContent = '';
+      if (announcer) {
+        announcer.textContent = '';
+      }
     }, 3000);
   }
   
