@@ -2,6 +2,27 @@
 
 A TypeScript weather dashboard application that displays current weather information and forecasts for any location using the WeatherAPI.com service.
 
+## Accessibility Features
+
+This project includes several accessibility enhancements:
+
+- **Accessibility Mode Toggle**: One-click toggle for enhanced readability
+- **Increased Font Sizes**: Larger text for better readability
+- **Enhanced Contrast**: Higher contrast ratios for text and UI elements
+- **Keyboard Navigation**: Full keyboard support with visible focus indicators
+- **Screen Reader Support**: Proper ARIA attributes and screen reader announcements
+- **Semantic HTML**: Proper use of HTML5 semantic elements and ARIA roles
+- **Preference Persistence**: User accessibility choices are remembered
+- **System Preference Detection**: Respects user's system dark mode preferences
+
+The accessibility toggle provides users with:
+
+- Increased font sizes
+- Enhanced color contrast
+- Improved focus indicators
+- Simplified layouts
+- Screen reader announcements for important updates# Weather Dashboard
+
 ## Features
 
 - Search for weather by city name
@@ -15,6 +36,7 @@ A TypeScript weather dashboard application that displays current weather informa
 - Three-day weather forecast
 - Responsive design for all device sizes
 - Dark mode toggle with user preference persistence
+- Accessibility mode with enhanced readability and screen reader support
 - Error handling for API requests
 - TypeScript for type safety and better developer experience
 
