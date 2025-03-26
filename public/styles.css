@@ -5,6 +5,23 @@
     --text-color: #333;
     --light-color: #ecf0f1;
     --danger-color: #e74c3c;
+    --background-color: #ecf0f1;
+    --card-background: white;
+    --detail-background: #ecf0f1;
+    --border-color: #ddd;
+  }
+  
+  :root.dark-theme {
+    --primary-color: #4a69bd;
+    --secondary-color: #0097e6;
+    --accent-color: #00a8ff;
+    --text-color: #f1f2f6;
+    --light-color: #2f3542;
+    --danger-color: #ff6b81;
+    --background-color: #1e272e;
+    --card-background: #2d3436;
+    --detail-background: #353b48;
+    --border-color: #3d3d3d;
   }
   
   * {
