@@ -1,12 +1,13 @@
 import { fetchWeatherData } from './api';
 import { updateWeatherUI, showError, showLoading } from './ui';
-import { debounce, toggleDarkMode, initializeTheme } from './utils';
+import { debounce, toggleDarkMode, toggleAccessibilityMode, initializeTheme } from './utils';
 
 // DOM elements
 const searchButton = document.getElementById('search-button') as HTMLButtonElement;
 const locationInput = document.getElementById('location-input') as HTMLInputElement;
 const currentYearElement = document.getElementById('current-year');
 const themeToggleButton = document.getElementById('theme-toggle') as HTMLButtonElement;
+const accessibilityToggleButton = document.getElementById('a11y-toggle') as HTMLButtonElement;
 
 // Set current year in footer
 if (currentYearElement) {
@@ -59,6 +60,11 @@ if (locationInput) {
 // Event listener for theme toggle button
 if (themeToggleButton) {
   themeToggleButton.addEventListener('click', toggleDarkMode);
+}
+
+// Event listener for accessibility toggle button
+if (accessibilityToggleButton) {
+  accessibilityToggleButton.addEventListener('click', toggleAccessibilityMode);
 }
 
 // Load default location on page load and initialize theme
