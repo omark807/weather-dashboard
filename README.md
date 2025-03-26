@@ -112,7 +112,8 @@ npm run test:watch
 
 - Implement geolocation to get the user's current location
 - Add options to switch between Celsius and Fahrenheit
-- Add more detailed forecast information
-- Implement location auto-suggestions
-- Add weather maps
-- Add weather alerts
+- Integrate real-time weather alerts
+- Add interactive zoom and pan controls to the weather map
+- Add historical weather data and trends
+- Implement advanced search with autocomplete
+- Add weather data charts and graphs
