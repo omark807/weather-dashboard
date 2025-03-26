@@ -1,5 +1,6 @@
 import { fetchWeatherData } from './api';
 import { updateWeatherUI, showError, showLoading } from './ui';
+import { initializeWeatherMap } from './map';
 import { debounce, toggleDarkMode, toggleAccessibilityMode, initializeTheme } from './utils';
 
 // DOM elements
@@ -32,6 +33,9 @@ async function searchWeather(): Promise<void> {
     // Fetch and display weather data
     const weatherData = await fetchWeatherData(location);
     updateWeatherUI(weatherData);
+    
+    // Initialize weather map with the location data
+    initializeWeatherMap(weatherData);
   } catch (error) {
     showError(error as any);
   }
