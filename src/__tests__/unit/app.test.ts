@@ -1,10 +1,17 @@
-/**
+test('clicking accessibility toggle button should toggle accessibility mode', () => {
+    // Trigger accessibility toggle button click
+    const accessibilityToggleButton = document.getElementById('a11y-toggle') as HTMLButtonElement;
+    accessibilityToggleButton.click();
+
+    // Verify
+    expect(toggleAccessibilityMode).toHaveBeenCalled();
+  });/**
  * @jest-environment jsdom
  */
 
 import { fetchWeatherData } from '../../api';
 import { updateWeatherUI, showError } from '../../ui';
-import { toggleDarkMode } from '../../utils';
+import { toggleDarkMode, toggleAccessibilityMode } from '../../utils';
 
 // Mock modules
 jest.mock('../../api');
@@ -12,6 +19,7 @@ jest.mock('../../ui');
 jest.mock('../../utils', () => ({
   ...jest.requireActual('../../utils'),
   toggleDarkMode: jest.fn(),
+  toggleAccessibilityMode: jest.fn(),
   initializeTheme: jest.fn()
 }));
 
@@ -19,15 +27,19 @@ describe('Application Integration', () => {
   let searchButton: HTMLButtonElement;
   let locationInput: HTMLInputElement;
   let themeToggleButton: HTMLButtonElement;
+  let accessibilityToggleButton: HTMLButtonElement;
   
   beforeEach(() => {
     // Setup DOM
     document.body.innerHTML = `
       <div class="container">
         <header>
-          <div class="header-content">
+      <div class="header-content">
             <h1>Weather Dashboard</h1>
-            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode"></button>
+            <div class="header-controls">
+              <button id="a11y-toggle" class="a11y-toggle" aria-label="Toggle accessibility mode"></button>
+              <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode"></button>
+            </div>
           </div>
         </header>
         
@@ -53,6 +65,7 @@ describe('Application Integration', () => {
     searchButton = document.getElementById('search-button') as HTMLButtonElement;
     locationInput = document.getElementById('location-input') as HTMLInputElement;
     themeToggleButton = document.getElementById('theme-toggle') as HTMLButtonElement;
+    accessibilityToggleButton = document.getElementById('a11y-toggle') as HTMLButtonElement;
     
     // Reset mocks
     jest.clearAllMocks();
