@@ -57,3 +57,26 @@ export function formatDate(dateString: string): string {
     if (uv <= 10) return { text: 'Very High', color: '#dc3545' };
     return { text: 'Extreme', color: '#6f42c1' };
   }
+  
+  /**
+   * Toggles between light and dark theme
+   */
+  export function toggleDarkMode(): void {
+    const root = document.documentElement;
+    const isDarkMode = root.classList.toggle('dark-theme');
+    
+    // Save the preference to localStorage
+    localStorage.setItem('darkMode', isDarkMode ? 'enabled' : 'disabled');
+  }
+  
+  /**
+   * Initializes the theme based on user's saved preference or system preference
+   */
+  export function initializeTheme(): void {
+    const savedTheme = localStorage.getItem('darkMode');
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    if (savedTheme === 'enabled' || (savedTheme === null && prefersDarkScheme.matches)) {
+      document.documentElement.classList.add('dark-theme');
+    }
+  }

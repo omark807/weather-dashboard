@@ -1,11 +1,12 @@
 import { fetchWeatherData } from './api';
 import { updateWeatherUI, showError, showLoading } from './ui';
-import { debounce } from './utils';
+import { debounce, toggleDarkMode, initializeTheme } from './utils';
 
 // DOM elements
 const searchButton = document.getElementById('search-button') as HTMLButtonElement;
 const locationInput = document.getElementById('location-input') as HTMLInputElement;
 const currentYearElement = document.getElementById('current-year');
+const themeToggleButton = document.getElementById('theme-toggle') as HTMLButtonElement;
 
 // Set current year in footer
 if (currentYearElement) {
@@ -55,8 +56,17 @@ if (locationInput) {
   }, 300));
 }
 
-// Load default location on page load (optional)
+// Event listener for theme toggle button
+if (themeToggleButton) {
+  themeToggleButton.addEventListener('click', toggleDarkMode);
+}
+
+// Load default location on page load and initialize theme
 window.addEventListener('load', () => {
+  // Initialize theme based on saved preference
+  initializeTheme();
+  
+  // Load default weather data
   locationInput.value = 'London';
   searchWeather();
 });
