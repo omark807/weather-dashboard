@@ -1,7 +1,3 @@
-# Weather Dashboard
-
-A TypeScript weather dashboard application that displays current weather information and forecasts for any location using the WeatherAPI.com service.
-
 ## Accessibility Features
 
 This project includes several accessibility enhancements:
@@ -23,6 +19,8 @@ The accessibility toggle provides users with:
 - Simplified layouts
 - Screen reader announcements for important updates# Weather Dashboard
 
+A TypeScript weather dashboard application that displays current weather information and forecasts for any location using the WeatherAPI.com service.
+
 ## Features
 
 - Search for weather by city name
@@ -33,6 +31,10 @@ The accessibility toggle provides users with:
   - Humidity
   - UV index
   - "Feels like" temperature
+- Interactive weather map with multiple layers:
+  - Precipitation radar
+  - Satellite cloud coverage
+  - Temperature map
 - Three-day weather forecast
 - Responsive design for all device sizes
 - Dark mode toggle with user preference persistence
