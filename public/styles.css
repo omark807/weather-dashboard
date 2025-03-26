@@ -1,4 +1,78 @@
-:root {
+/* Typography updates for accessibility mode */
+h1 {
+    font-size: calc(var(--font-size-xlarge) * 1.5);
+    margin-bottom: var(--spacing);
+  }
+  
+  h2, h3 {
+    font-size: var(--font-size-xlarge);
+    margin-bottom: var(--spacing);
+  }
+  
+  h4, h5, h6 {
+    font-size: var(--font-size-large);
+    margin-bottom: calc(var(--spacing) * 0.5);
+  }
+  
+  p, li, input, button {
+    font-size: var(--font-size-base);
+  }
+  
+  .a11y-mode .weather-header h2,
+  .a11y-mode .temperature h2 {
+    font-size: calc(var(--font-size-xlarge) * 1.2);
+  }
+  
+  /* Container spacing in accessibility mode */
+  .a11y-mode .container {
+    padding: calc(var(--spacing) * 1.5);
+  }
+  
+  .a11y-mode .search-container {
+    margin-bottom: calc(var(--spacing) * 1.5);
+  }
+  
+  .a11y-mode .current-weather {
+    padding: calc(var(--spacing) * 1.5);
+    margin-bottom: calc(var(--spacing) * 1.5);
+  }
+  
+  .a11y-mode .weather-details {
+    gap: calc(var(--spacing) * 1.5);
+  }
+  
+  .a11y-mode .weather-detail {
+    padding: calc(var(--spacing) * 1.2);
+  }
+  
+  .a11y-mode .forecast-item {
+    padding: calc(var(--spacing) * 1.2);
+  }
+  
+  /* Enhanced contrast for accessibility mode */
+  .a11y-mode button {
+    background-color: var(--secondary-color);
+    color: var(--button-text);
+    font-weight: bold;
+  }
+  
+  .a11y-mode.dark-theme .current-weather,
+  .a11y-mode.dark-theme .forecast-item {
+    border: 2px solid var(--primary-color);
+  }
+  
+  /* Screen reader enhancements */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }:root {
     --primary-color: #2c3e50;
     --secondary-color: #3498db;
     --accent-color: #1abc9c;
@@ -9,6 +83,13 @@
     --card-background: white;
     --detail-background: #ecf0f1;
     --border-color: #ddd;
+    --focus-color: #3498db;
+    --button-text: white;
+    --font-size-base: 1rem;
+    --font-size-large: 1.25rem;
+    --font-size-xlarge: 1.5rem;
+    --line-height: 1.6;
+    --spacing: 1rem;
   }
   
   :root.dark-theme {
@@ -22,6 +103,23 @@
     --card-background: #2d3436;
     --detail-background: #353b48;
     --border-color: #3d3d3d;
+    --focus-color: #00d2d3;
+  }
+  
+  :root.a11y-mode {
+    --font-size-base: 1.2rem;
+    --font-size-large: 1.5rem;
+    --font-size-xlarge: 1.8rem;
+    --line-height: 1.8;
+    --spacing: 1.5rem;
+  }
+  
+  :root.a11y-mode.dark-theme {
+    --primary-color: #74b9ff;
+    --secondary-color: #0984e3;
+    --text-color: #ffffff;
+    --focus-color: #fd79a8;
+    --button-text: #000000;
   }
   
   * {
@@ -32,10 +130,11 @@
   
   body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
+    line-height: var(--line-height);
     color: var(--text-color);
     background-color: var(--background-color);
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, font-size 0.3s ease;
+    font-size: var(--font-size-base);
   }
   
   .container {
@@ -57,9 +156,14 @@
     position: relative;
   }
   
-  .theme-toggle {
+  .header-controls {
     position: absolute;
     right: 0;
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .theme-toggle, .a11y-toggle {
     background: transparent;
     border: none;
     color: var(--primary-color);
@@ -74,12 +178,24 @@
     transition: background-color 0.3s;
   }
   
-  .theme-toggle:hover {
+  .theme-toggle:hover, .a11y-toggle:hover {
     background-color: rgba(0, 0, 0, 0.1);
   }
   
-  .dark-theme .theme-toggle:hover {
+  .dark-theme .theme-toggle:hover, .dark-theme .a11y-toggle:hover {
     background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Focus styles for accessibility */
+  .theme-toggle:focus, .a11y-toggle:focus, 
+  button:focus, input:focus {
+    outline: 3px solid var(--focus-color);
+    outline-offset: 2px;
+  }
+  
+  .a11y-mode .theme-toggle:focus, .a11y-mode .a11y-toggle:focus,
+  .a11y-mode button:focus, .a11y-mode input:focus {
+    outline-width: 4px;
   }
   
   .sun-icon, .moon-icon {
