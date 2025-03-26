@@ -14,6 +14,7 @@ A TypeScript weather dashboard application that displays current weather informa
   - "Feels like" temperature
 - Three-day weather forecast
 - Responsive design for all device sizes
+- Dark mode toggle with user preference persistence
 - Error handling for API requests
 - TypeScript for type safety and better developer experience
 
