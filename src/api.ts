@@ -4,7 +4,7 @@ import { formatDate } from './utils';
 
 // Free API key from WeatherAPI.com - limited to 1,000,000 calls per month
 // You should sign up for your own API key at https://www.weatherapi.com/
-const API_KEY = 'YOUR_API_KEY'; // Replace with your actual API key
+const API_KEY = 'ec53ffe3aa984dc0989215617252603'; // Replace with your actual API key
 const BASE_URL = 'https://api.weatherapi.com/v1';
 
 /**
