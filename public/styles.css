@@ -34,7 +34,8 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: var(--text-color);
-    background-color: var(--light-color);
+    background-color: var(--background-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
   
   .container {
@@ -49,6 +50,65 @@
     color: var(--primary-color);
   }
   
+  .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .theme-toggle {
+    position: absolute;
+    right: 0;
+    background: transparent;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    transition: background-color 0.3s;
+  }
+  
+  .theme-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  .dark-theme .theme-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .sun-icon, .moon-icon {
+    width: 24px;
+    height: 24px;
+    transition: opacity 0.3s, transform 0.3s;
+  }
+  
+  .sun-icon {
+    opacity: 1;
+    position: absolute;
+  }
+  
+  .moon-icon {
+    opacity: 0;
+    transform: translateY(10px);
+    position: absolute;
+  }
+  
+  .dark-theme .sun-icon {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  
+  .dark-theme .moon-icon {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
   .search-container {
     display: flex;
     margin-bottom: 2rem;
@@ -57,9 +117,12 @@
   input {
     flex: 1;
     padding: 0.8rem;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color);
     border-radius: 4px 0 0 4px;
     font-size: 1rem;
+    background-color: var(--card-background);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
   }
   
   button {
@@ -85,11 +148,12 @@
   }
   
   .current-weather {
-    background-color: white;
+    background-color: var(--card-background);
     border-radius: 8px;
     padding: 1.5rem;
     margin-bottom: 2rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
   }
   
   .weather-header {
@@ -114,9 +178,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--light-color);
+    background-color: var(--detail-background);
     padding: 1rem;
     border-radius: 4px;
+    transition: background-color 0.3s;
   }
   
   .forecast {
@@ -126,19 +191,21 @@
   }
   
   .forecast-item {
-    background-color: white;
+    background-color: var(--card-background);
     border-radius: 8px;
     padding: 1rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
+    transition: background-color 0.3s;
   }
   
   footer {
     text-align: center;
     margin-top: 2rem;
     padding-top: 1rem;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid var(--border-color);
     color: var(--primary-color);
+    transition: border-color 0.3s;
   }
   
   @media (max-width: 768px) {
