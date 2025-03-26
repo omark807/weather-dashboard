@@ -1,4 +1,33 @@
-.weather-map-container {
+.map-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 0.5rem 1rem;
+  }
+  
+  .map-location {
+    margin: 0;
+    font-weight: bold;
+  }
+  
+  .weather-map-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .a11y-mode .map-overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 0.8rem 1.2rem;
+  }
+  
+  .a11y-mode .map-location {
+    font-size: var(--font-size-large);
+  }.weather-map-container {
     background-color: var(--card-background);
     border-radius: 8px;
     padding: 1.5rem;
