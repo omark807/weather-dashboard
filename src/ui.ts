@@ -109,6 +109,7 @@ export function hideError(): void {
 export function showLoading(): void {
   const currentWeatherElement = document.getElementById('current-weather');
   const forecastElement = document.getElementById('forecast');
+  const mapElement = document.getElementById('weather-map');
   
   if (currentWeatherElement) {
     currentWeatherElement.innerHTML = '<p aria-live="polite">Loading current weather data...</p>';
@@ -116,6 +117,10 @@ export function showLoading(): void {
   
   if (forecastElement) {
     forecastElement.innerHTML = '<p aria-live="polite">Loading forecast data...</p>';
+  }
+  
+  if (mapElement) {
+    mapElement.innerHTML = '<p aria-live="polite">Loading weather map...</p>';
   }
   
   // Announce loading for screen readers
