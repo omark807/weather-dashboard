@@ -2,10 +2,12 @@ import { fetchWeatherData } from './api';
 import { updateWeatherUI, showError, showLoading } from './ui';
 import { initializeWeatherMap } from './map';
 import { debounce, toggleDarkMode, toggleAccessibilityMode, initializeTheme } from './utils';
+import { WORLDWIDE_CITIES } from './cities';
 
 // DOM elements
 const searchButton = document.getElementById('search-button') as HTMLButtonElement;
 const locationInput = document.getElementById('location-input') as HTMLInputElement;
+const cityDropdown = document.getElementById('city-dropdown') as HTMLSelectElement;
 const currentYearElement = document.getElementById('current-year');
 const themeToggleButton = document.getElementById('theme-toggle') as HTMLButtonElement;
 const accessibilityToggleButton = document.getElementById('a11y-toggle') as HTMLButtonElement;
@@ -15,14 +17,31 @@ if (currentYearElement) {
   currentYearElement.textContent = new Date().getFullYear().toString();
 }
 
+// Populate city dropdown with worldwide cities
+if (cityDropdown) {
+  WORLDWIDE_CITIES.forEach(city => {
+    const option = document.createElement('option');
+    option.value = city.name;
+    option.textContent = city.displayName;
+    cityDropdown.appendChild(option);
+  });
+}
+
 /**
- * Searches for weather data based on the input value
+ * Searches for weather data based on the input value or dropdown selection
  */
 async function searchWeather(): Promise<void> {
-  const location = locationInput.value.trim();
+  // Get location from dropdown first, fall back to text input
+  let location = '';
+  
+  if (cityDropdown && cityDropdown.value) {
+    location = cityDropdown.value;
+  } else if (locationInput) {
+    location = locationInput.value.trim();
+  }
   
   if (!location) {
-    showError({ message: 'Please enter a location' });
+    showError({ message: 'Please select a city or enter a location' });
     return;
   }
   
@@ -41,6 +60,19 @@ async function searchWeather(): Promise<void> {
   }
 }
 
+// Event listener for city dropdown
+if (cityDropdown) {
+  cityDropdown.addEventListener('change', () => {
+    if (cityDropdown.value) {
+      // Clear text input when dropdown is selected
+      if (locationInput) {
+        locationInput.value = '';
+      }
+      searchWeather();
+    }
+  });
+}
+
 // Event listener for search button
 if (searchButton) {
   searchButton.addEventListener('click', searchWeather);
@@ -54,10 +86,11 @@ if (locationInput) {
     }
   });
   
-  // Add input event with debounce for suggestions (could be expanded)
+  // Clear dropdown when typing in text input
   locationInput.addEventListener('input', debounce(() => {
-    // This could be used for implementing location suggestions
-    // Not implemented in this basic version
+    if (locationInput.value && cityDropdown) {
+      cityDropdown.value = '';
+    }
   }, 300));
 }
 
@@ -76,7 +109,9 @@ window.addEventListener('load', () => {
   // Initialize theme based on saved preference
   initializeTheme();
   
-  // Load default weather data
-  locationInput.value = 'London';
-  searchWeather();
+  // Load default weather data for London
+  if (cityDropdown) {
+    cityDropdown.value = 'London';
+    searchWeather();
+  }
 });
