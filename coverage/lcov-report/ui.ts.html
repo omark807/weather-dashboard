@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">97.22% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>27/27</span>
+                <span class='fraction'>35/36</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>8/10</span>
+                <span class='fraction'>9/18</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">97.14% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>26/26</span>
+                <span class='fraction'>34/35</span>
             </div>
         
             
@@ -174,7 +174,23 @@
 <a name='L109'></a><a href='#L109'>109</a>
 <a name='L110'></a><a href='#L110'>110</a>
 <a name='L111'></a><a href='#L111'>111</a>
-<a name='L112'></a><a href='#L112'>112</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L112'></a><a href='#L112'>112</a>
+<a name='L113'></a><a href='#L113'>113</a>
+<a name='L114'></a><a href='#L114'>114</a>
+<a name='L115'></a><a href='#L115'>115</a>
+<a name='L116'></a><a href='#L116'>116</a>
+<a name='L117'></a><a href='#L117'>117</a>
+<a name='L118'></a><a href='#L118'>118</a>
+<a name='L119'></a><a href='#L119'>119</a>
+<a name='L120'></a><a href='#L120'>120</a>
+<a name='L121'></a><a href='#L121'>121</a>
+<a name='L122'></a><a href='#L122'>122</a>
+<a name='L123'></a><a href='#L123'>123</a>
+<a name='L124'></a><a href='#L124'>124</a>
+<a name='L125'></a><a href='#L125'>125</a>
+<a name='L126'></a><a href='#L126'>126</a>
+<a name='L127'></a><a href='#L127'>127</a>
+<a name='L128'></a><a href='#L128'>128</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -229,6 +245,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -245,6 +264,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -254,6 +276,8 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -277,6 +301,7 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -285,8 +310,15 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { WeatherData, ApiError } from './types';
-import { getTemperatureColor, getUVDescription } from './utils';
+import { getTemperatureColor, getUVDescription, announceForScreenReader } from './utils';
 &nbsp;
 /**
  * Updates the UI with the provided weather data
@@ -298,7 +330,7 @@ export function updateWeatherUI(data: WeatherData): void {
   
   // Update current weather section
   const currentWeatherElement = document.getElementById('current-weather');
-  if (currentWeatherElement) {
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (currentWeatherElement) {
     currentWeatherElement.innerHTML = `
       &lt;div class="weather-header"&gt;
         &lt;div&gt;
@@ -306,28 +338,28 @@ export function updateWeatherUI(data: WeatherData): void {
           &lt;p&gt;${data.region ? `${data.region}, ` : <span class="branch-1 cbranch-no" title="branch not covered" >''}</span>${data.country}&lt;/p&gt;
           &lt;p&gt;Last updated: ${data.lastUpdated}&lt;/p&gt;
         &lt;/div&gt;
-        &lt;div&gt;
-          &lt;img class="weather-icon" src="https:${data.conditionIcon}" alt="${data.condition}"&gt;
+        &lt;div aria-label="Current weather condition: ${data.condition}"&gt;
+          &lt;img class="weather-icon" src="https:${data.conditionIcon}" alt="${data.condition}" aria-hidden="true"&gt;
           &lt;h3&gt;${data.condition}&lt;/h3&gt;
         &lt;/div&gt;
       &lt;/div&gt;
       
-      &lt;div class="temperature"&gt;
+      &lt;div class="temperature" aria-label="Current temperature: ${data.temperature.toFixed(1)} degrees Celsius, feels like ${data.feelsLike.toFixed(1)} degrees"&gt;
         &lt;h2 style="color: ${getTemperatureColor(data.temperature)}"&gt;${data.temperature.toFixed(1)}°C&lt;/h2&gt;
         &lt;p&gt;Feels like: ${data.feelsLike.toFixed(1)}°C&lt;/p&gt;
       &lt;/div&gt;
       
-      &lt;div class="weather-details"&gt;
-        &lt;div class="weather-detail"&gt;
+      &lt;div class="weather-details" role="list" aria-label="Weather details"&gt;
+        &lt;div class="weather-detail" role="listitem"&gt;
           &lt;h4&gt;Wind&lt;/h4&gt;
           &lt;p&gt;${data.wind.toFixed(1)} km/h&lt;/p&gt;
           &lt;p&gt;${data.windDirection}&lt;/p&gt;
         &lt;/div&gt;
-        &lt;div class="weather-detail"&gt;
+        &lt;div class="weather-detail" role="listitem"&gt;
           &lt;h4&gt;Humidity&lt;/h4&gt;
           &lt;p&gt;${data.humidity}%&lt;/p&gt;
         &lt;/div&gt;
-        &lt;div class="weather-detail"&gt;
+        &lt;div class="weather-detail" role="listitem"&gt;
           &lt;h4&gt;UV Index&lt;/h4&gt;
           &lt;p style="color: ${getUVDescription(data.uv).color}"&gt;
             ${data.uv} (${getUVDescription(data.uv).text})
@@ -339,11 +371,14 @@ export function updateWeatherUI(data: WeatherData): void {
   
   // Update forecast section
   const forecastElement = document.getElementById('forecast');
-  if (forecastElement) {
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (forecastElement) {
+    forecastElement.setAttribute('role', 'region');
+    forecastElement.setAttribute('aria-label', '3-day weather forecast');
+    
     forecastElement.innerHTML = data.forecast.map(day =&gt; `
-      &lt;div class="forecast-item"&gt;
+      &lt;div class="forecast-item" role="article" aria-label="Forecast for ${day.date}"&gt;
         &lt;h3&gt;${day.date}&lt;/h3&gt;
-        &lt;img src="https:${day.conditionIcon}" alt="${day.condition}"&gt;
+        &lt;img src="https:${day.conditionIcon}" alt="${day.condition}" aria-hidden="true"&gt;
         &lt;p&gt;${day.condition}&lt;/p&gt;
         &lt;p style="color: ${getTemperatureColor(day.maxTemp)}"&gt;
           High: ${day.maxTemp.toFixed(1)}°C
@@ -354,6 +389,9 @@ export function updateWeatherUI(data: WeatherData): void {
       &lt;/div&gt;
     `).join('');
   }
+  
+  // Announce weather update to screen readers
+  announceForScreenReader(`Weather updated for ${data.location}. Currently ${data.temperature.toFixed(1)} degrees with ${data.condition}.`);
 }
 &nbsp;
 /**
@@ -362,8 +400,10 @@ export function updateWeatherUI(data: WeatherData): void {
  */
 export function showError(error: ApiError): void {
   const errorContainer = document.getElementById('error-container');
-  if (errorContainer) {
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (errorContainer) {
     errorContainer.style.display = 'block';
+    errorContainer.setAttribute('role', 'alert');
+    errorContainer.setAttribute('aria-live', 'assertive');
     errorContainer.innerHTML = `
       &lt;p&gt;&lt;strong&gt;Error:&lt;/strong&gt; ${error.message}&lt;/p&gt;
       ${error.code ? `&lt;p&gt;Status code: ${error.code}&lt;/p&gt;` : <span class="branch-1 cbranch-no" title="branch not covered" >''}</span>
@@ -376,7 +416,7 @@ export function showError(error: ApiError): void {
  */
 export function hideError(): void {
   const errorContainer = document.getElementById('error-container');
-  if (errorContainer) {
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (errorContainer) {
     errorContainer.style.display = 'none';
     errorContainer.innerHTML = '';
   }
@@ -388,14 +428,22 @@ export function hideError(): void {
 export function showLoading(): void {
   const currentWeatherElement = document.getElementById('current-weather');
   const forecastElement = document.getElementById('forecast');
+  const mapElement = document.getElementById('weather-map');
   
-  if (currentWeatherElement) {
-    currentWeatherElement.innerHTML = '&lt;p&gt;Loading current weather data...&lt;/p&gt;';
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (currentWeatherElement) {
+    currentWeatherElement.innerHTML = '&lt;p aria-live="polite"&gt;Loading current weather data...&lt;/p&gt;';
   }
   
-  if (forecastElement) {
-    forecastElement.innerHTML = '&lt;p&gt;Loading forecast data...&lt;/p&gt;';
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (forecastElement) {
+    forecastElement.innerHTML = '&lt;p aria-live="polite"&gt;Loading forecast data...&lt;/p&gt;';
   }
+  
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (mapElement) {
+<span class="cstat-no" title="statement not covered" >    mapElement.innerHTML = '&lt;p aria-live="polite"&gt;Loading weather map...&lt;/p&gt;';</span>
+  }
+  
+  // Announce loading for screen readers
+  announceForScreenReader('Loading weather information. Please wait.');
 }</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -403,7 +451,7 @@ export function showLoading(): void {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-03-26T22:27:37.445Z
+                at 2025-10-08T16:20:42.980Z
             </div>
         <script src="prettify.js"></script>
         <script>

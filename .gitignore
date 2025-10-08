@@ -4,6 +4,9 @@
 # production
 /dist
 
+# coverage
+/coverage
+
 # environment variables
 .env
 .env.local

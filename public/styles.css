@@ -328,14 +328,30 @@
   
   .search-container {
     display: flex;
+    gap: 0.5rem;
     margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  #city-dropdown {
+    flex: 1;
+    min-width: 200px;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: var(--card-background);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
   }
   
   input {
     flex: 1;
+    min-width: 200px;
     padding: 0.8rem;
     border: 1px solid var(--border-color);
-    border-radius: 4px 0 0 4px;
+    border-radius: 4px;
     font-size: 1rem;
     background-color: var(--card-background);
     color: var(--text-color);
@@ -347,10 +363,14 @@
     background-color: var(--secondary-color);
     color: white;
     border: none;
-    border-radius: 0 4px 4px 0;
+    border-radius: 4px;
     cursor: pointer;
     font-size: 1rem;
     transition: background-color 0.3s;
+  }
+  
+  #search-button {
+    white-space: nowrap;
   }
   
   button:hover {
